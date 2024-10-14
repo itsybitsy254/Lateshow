@@ -30,7 +30,7 @@ This is a Flask application that manages episodes, guests, and their appearances
 
 1. **Clone the repository:**
     ```bash
-    git clone https://github.com/itsybitsy254/Lateshow.git
+    git clone git@github.com:itsybitsy254/Lateshow.git
     cd lateshow
     ```
 
