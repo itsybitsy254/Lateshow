@@ -1,96 +1,117 @@
-# Lateshow
-Late Show Flask Application
+# Late Show Flask Application
+
 This is a Flask application that manages episodes, guests, and their appearances on a Late Show. The API provides functionalities to create, read, update, and delete episodes, retrieve guests, and associate them with their appearances on specific episodes using a relational database.
 
-Table of Contents
-Features
-Technologies
-Installation
-Setup
-Usage
-API Endpoints
-Error Handling
+## Table of Contents
+- [Features](#features)
+- [Technologies](#technologies)
+- [Installation](#installation)
+- [Setup](#setup)
+- [Usage](#usage)
+- [API Endpoints](#api-endpoints)
+- [Error Handling](#error-handling)
 
-Features
-Create, read, and delete episodes.
-Retrieve information about guests.
-Associate guests with episodes by creating appearances with ratings.
-Input validation for creating associations.
-Detailed error handling with informative messages.
+## Features
+- Create, read, and delete episodes.
+- Retrieve information about guests.
+- Associate guests with episodes by creating appearances with ratings.
+- Input validation for creating associations.
+- Detailed error handling with informative messages.
 
-Technologies
-Flask: Web framework for building the API.
-Flask-SQLAlchemy: ORM for database management.
-Flask-Migrate: For handling database migrations.
-Marshmallow: For serialization and validation.
-SQLite: Database management system.
-Python: Programming language.
+## Technologies
+- **Flask**: Web framework for building the API.
+- **Flask-SQLAlchemy**: ORM for database management.
+- **Flask-Migrate**: For handling database migrations.
+- **Marshmallow**: For serialization and validation.
+- **SQLite**: Database management system.
+- **Python**: Programming language.
 
-Installation
-Clone the repository:
-`git clone https://github.com/itsybitsy254/lateshow.git`
+## Installation
 
-open directory
-`cd lateshow`
+1. **Clone the repository:**
+    ```bash
+    git clone https://github.com/itsybitsy254/lateshow.git
+    cd lateshow
+    ```
 
-Create a virtual environment:
-`python -m venv venv`
+2. **Create a virtual environment:**
+    ```bash
+    python -m venv venv
+    ```
 
-Activate the virtual environment:
-On Windows:
-`venv\Scripts\activate`
+3. **Activate the virtual environment:**
 
-On macOS/Linux:
-`source venv/bin/activate`
+   - On Windows:
+     ```bash
+     venv\Scripts\activate
+     ```
 
-Install the required packages:
-`pip install -r requirements.txt`
+   - On macOS/Linux:
+     ```bash
+     source venv/bin/activate
+     ```
 
-Setup
-Run database migrations to set up the database schema:
-`flask db upgrade`
+4. **Install the required packages:**
+    ```bash
+    pip install -r requirements.txt
+    ```
 
-Start the application: `python app.py` 
-alternatively; `flask run`
+## Setup
 
-The application will start running on http://127.0.0.1:5000.
+1. **Run database migrations to set up the database schema:**
+    ```bash
+    flask db upgrade
+    ```
 
-Usage
-You can use tools like Postman or curl to interact with the API endpoints. Below are the available endpoints.
+2. **Start the application:**
+    ```bash
+    python app.py
+    ```
 
-API Endpoints
+   Alternatively:
+    ```bash
+    flask run
+    ```
 
-Episodes:
-GET /episodes: Retrieve all episodes.
-Response: List of episodes with details.
-GET /episodes/int:id: Retrieve a specific episode by ID.
-Response: Details of the episode.
-DELETE /episodes/int:id: Delete a specific episode by ID.
-Response: Success message or error if the episode is not found.
+3. The application will start running on `http://127.0.0.1:5000`.
 
-Guests:
-GET /guests: Retrieve all guests.
-Response: List of guests.
-GET /guests/int:id: Retrieve a specific guest by ID.
-Response: Details of the guest.
+## Usage
 
-Appearances:
-POST /appearances: Create a new appearance.
-Request Body:
-json
-Copy code
-{
-  "rating": 4,
-  "episode_id": 1,
-  "guest_id": 2
-}
-Response: Success message or validation errors.
+You can use tools like **Postman** or **curl** to interact with the API endpoints. Below are the available endpoints.
 
-Error Handling
+## API Endpoints
+
+### Episodes:
+- **GET /episodes**: Retrieve all episodes.
+  - **Response**: List of episodes with details.
+  
+- **GET /episodes/<int:id>**: Retrieve a specific episode by ID.
+  - **Response**: Details of the episode.
+  
+- **DELETE /episodes/<int:id>**: Delete a specific episode by ID.
+  - **Response**: Success message or error if the episode is not found.
+
+### Guests:
+- **GET /guests**: Retrieve all guests.
+  - **Response**: List of guests.
+  
+- **GET /guests/<int:id>**: Retrieve a specific guest by ID.
+  - **Response**: Details of the guest.
+
+### Appearances:
+- **POST /appearances**: Create a new appearance.
+  - **Request Body**:
+    ```json
+    {
+      "rating": 4,
+      "episode_id": 1,
+      "guest_id": 2
+    }
+    ```
+  - **Response**: Success message or validation errors.
+
+## Error Handling
 The application provides detailed error handling:
-If an episode or guest is not found, a 404 error with a message is returned.
-Input validation ensures that data is correctly formatted (e.g., rating between 1 and 5).
-Any server-side errors return a 500 error with a detailed message for troubleshooting.
-
-
-
+- If an episode or guest is not found, a 404 error with a message is returned.
+- Input validation ensures that data is correctly formatted (e.g., rating between 1 and 5).
+- Any server-side errors return a 500 error with a detailed message for troubleshooting.
