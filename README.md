@@ -31,7 +31,7 @@ This is a Flask application that manages episodes, guests, and their appearances
 1. **Clone the repository:**
     ```bash
     git clone git@github.com:itsybitsy254/Lateshow.git
-    cd lateshow
+    cd Lateshow
     ```
 
 2. **Create a virtual environment:**
